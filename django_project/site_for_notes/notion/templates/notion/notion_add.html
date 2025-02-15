@@ -1,3 +1,5 @@
+import Pillow
+
 {% extends 'base.html' %}
 {% load static %}
 
@@ -12,7 +14,7 @@
 </div>
 
 <div class="from_add_notion text-center">
-        <form method="post" action="">
+        <form method="post" action="" enctype="multipart/form-data">
             {% csrf_token %}
             {% for f in form %}
             <div class="element_form text-center"><label class="form_label_add" for="{{ f.id_for_label }}">{{ f.label }}</label>{{ f }}</div>
