@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link type="text/css" href="{% static 'notion/css/notions.css' %}" rel="stylesheet" />
+<title>Notions paig</title>
+
+<div class="container text-center">
+  <div class="main-start-text">
+      <div>Notins from folder: {{ main_title }}</div>
+  </div>
+</div>
+
+<div class="notion_cards">
+    <div class="row">
+{% for noti in notions %}
+
+    <div class="col-lg-4 d-flex align-items-stretch">
+  <div class="card text-center" >
+      <div class="card_body">
+      <h5 class="card-title">{{ noti.title }} </h5>
+      <h6 class="card-subtitle mb-2 text-muted">Author</h6>
+      <div class="card-text">{{ noti.content }}</div>
+          {% if noti.fun_image %}
+         <img class="img-thumbnail" src="{{ noti.fun_image.url }}">
+          {% endif %}
+        </div>
+      <div class="card_text_date_upload d-flex justify-content-around">Last update <b>{{ noti.date_update|date:"SHORT_DATE_FORMAT" }}</b></div>
+  </div>
+    </div>
+{% endfor %}
+        </div>
+</div>
+
+{% endblock %}

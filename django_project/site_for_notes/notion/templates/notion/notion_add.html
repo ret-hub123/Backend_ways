@@ -1,0 +1,28 @@
+import Pillow
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link type="text/css" href="{% static 'notion/css/notion_index.css' %}" rel="stylesheet" />
+<title>Notion_Add paig</title>
+
+<div class="container text-center">
+  <div class="main-start-text">
+      {{ main_header }}
+  </div>
+</div>
+
+<div class="from_add_notion text-center">
+        <form method="post" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for f in form %}
+            <div class="element_form text-center"><label class="form_label_add" for="{{ f.id_for_label }}">{{ f.label }}</label>{{ f }}</div>
+            <div class="errors_form">{{ f.errors }}</div>
+            {% endfor %}
+            <button type="submit">SEND</button>
+        </form>
+</div>
+
+
+{% endblock %}
