@@ -1,5 +1,5 @@
 """
-URL configuration for site_for_notes project.
+URL configuration for site_for_notes_setting project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -18,7 +18,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
-from site_for_notes import settings
+from site_for_notes_setting import settings
 from site_for_notes_apllication import views
 
 urlpatterns = [
